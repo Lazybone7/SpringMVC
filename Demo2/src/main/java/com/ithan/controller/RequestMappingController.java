@@ -50,4 +50,11 @@ public class RequestMappingController {
         System.out.println("POST请求");
         return "success";
     }
+
+    @RequestMapping(
+            value = {"/param"},
+            params = {"username=admin"})
+    public String testRequstParam(){
+        return "success";
+    }
 }

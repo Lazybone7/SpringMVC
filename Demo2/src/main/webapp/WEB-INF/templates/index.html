@@ -13,5 +13,8 @@
 <form th:action="@{/request}" method="post">
     <input type="submit" value="测试RequestMapping注解的method属性——>POST">
 </form>
+<a th:href="@{/param?username=abc}">测试RequestMapping注解的param属性</a><br>
+<a th:href="@{/param(username=abc)}">测试RequestMapping注解的param属性2</a><br>
+<a th:href="@{/param}">测试RequestMapping注解的param属性无参数</a><br>
 </body>
 </html>
