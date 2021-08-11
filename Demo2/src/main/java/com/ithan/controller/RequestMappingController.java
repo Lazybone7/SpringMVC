@@ -1,8 +1,10 @@
 package com.ithan.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import sun.awt.SunHints;
 
 /**
  * @RequestMapping注解：
@@ -57,4 +59,28 @@ public class RequestMappingController {
     public String testRequstParam(){
         return "success";
     }
+
+    @RequestMapping(
+            value = {"/request/header"},
+            headers = {"Host=localhost:8081"}
+    )
+    public String testHeader(){
+        return "success";
+    }
+
+    @RequestMapping(
+            //value = "/a?a/ant"
+            value = "/a/**/ant"
+    )
+    public String testAnt(){
+        return "success";
+    }
+
+    //@RequestMapping("/path/{id}")
+    @RequestMapping("/path/{id}/{username}")
+    public String testPath(@PathVariable("id") Integer id, @PathVariable("username") String username){
+        System.out.println("id = " + id + "username = " + username);
+        return "success";
+    }
+
 }
